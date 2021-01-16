@@ -113,21 +113,31 @@ daily_transactions = daily_sales_replaced.split(",")
 daily_transactions_split =[]
 
 for sing_data in daily_transactions:
-    daily_transactions_split.append(sing_data.split(","))
+    daily_transactions_split.append(sing_data.split("+"))
 
-print(daily_transactions_split)
-'''
+#print(daily_transactions_split)
+
 transactions_clean = []
-
+# This double for loop goes through the details of a single transaction list.
+# Then it goes through each particular detail first it takes that detail and replaces any new line space with no space
+# Which is then stripped of any additional spaces
+#Finally transaction_clean is appended to transactions_clean
 for details in daily_transactions_split:
     transaction_clean = []
     for detail in details:
-        transaction_clean.append(detail.strip())
-        transactions_clean.append(transaction_clean)
+        transaction_clean.append(detail.replace("\n", "").strip(" "))
+    transactions_clean.append(transaction_clean)
 
-print(transactions_clean)
+#print(transactions_clean)
 
 customers = []
 sales = []
-thread_sold = []'''
+thread_sold = []
+for transaction in transactions_clean:
+    customers.append(transaction[0])
+    sales.append(transaction[1])
+    thread_sold.append(transaction[2])
 
+print(customers)
+print(sales)
+print(thread_sold)
