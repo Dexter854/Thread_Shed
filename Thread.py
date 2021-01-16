@@ -105,7 +105,7 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 ;,; green&white&blue   ;,; 09/15/17 , Myrtle Morris 
 ;,;   $22.66   ;,; green&white&blue;,;09/15/17"""
 
-daily_sales_replaced = daily_sales.replace(";,;",",")
+daily_sales_replaced = daily_sales.replace(";,;","+")
 daily_transactions = daily_sales_replaced.split(",")
 
 #print(daily_transactions)
@@ -115,11 +115,19 @@ daily_transactions_split =[]
 for sing_data in daily_transactions:
     daily_transactions_split.append(sing_data.split(","))
 
-#print(daily_transactions_split)
-
+print(daily_transactions_split)
+'''
 transactions_clean = []
 
 for details in daily_transactions_split:
+    transaction_clean = []
     for detail in details:
-        transactions_clean.append(detail.strip())
+        transaction_clean.append(detail.strip())
+        transactions_clean.append(transaction_clean)
+
 print(transactions_clean)
+
+customers = []
+sales = []
+thread_sold = []'''
+
